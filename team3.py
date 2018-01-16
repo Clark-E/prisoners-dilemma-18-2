@@ -7,7 +7,7 @@
 ####
 
 team_name = 'Team thr33' # Only 10 chars displayed.
-strategy_name = ''
+strategy_name = 'Collude, then betray'
 strategy_description = 'Collude untill the other team betrays(or the game gets long enough), then betray'
     
 def move(my_history, their_history, my_score, their_score):
