@@ -1,5 +1,7 @@
 from __future__ import print_function
 
+from importlib import reload
+
 ##### 
 # Computer Science and Software Engineering
 # PLTW AP CS Principles
@@ -62,6 +64,7 @@ def main_play(modules):
         sections: a list of [str, str, str, list of str]    
             '''
     scores, moves = play_tournament(modules)
+
     section0, section1, section2, section3 = make_reports(modules, scores, moves)
     code = make_code_string(modules)
     # On screen, include the first three out of four sections of the report.
@@ -270,7 +273,7 @@ def make_section2(modules, scores):
                               'P'+str(index),
                               str(sum(scores[index])/len(modules)),
                               str(modules[index].strategy_name)))
-    section2_list.sort(key=lambda x: int(x[2]), reverse=True)
+    section2_list.sort(key=lambda x: float(x[2]), reverse=True)
     
     # Generate one string per team
     # Rockettes (P1):  -500 points with Backstabber
