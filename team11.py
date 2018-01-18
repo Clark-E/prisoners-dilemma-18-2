@@ -6,7 +6,26 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
+team_name = 'Sozi' 
+"""
+Gender:	Masculine Type:	Adult 
+Nationality:	Norwegian 
+Location:	Norway 
+Language:	Norwegian 
+Life & Times Age:	50 
+Birth date:	May 20, 1967 (10:37 AM)
+Physical
+Height:	171 cm / 5 ft 7 in
+Weight:	74 kg / 162 lbs
+Handedness:	Right
+Blood type:	O+
+Future Outlook
+Death date:	September 3, 2052 (8:30 PM)
+Lifespan:	85
+Cause of death:	Unspecified Illness
+"""
+
+
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
@@ -53,7 +72,7 @@ if __name__ == '__main__':
               my_score=0,
               their_score=0,
               result='b'):
-         print 'Test passed'
+         print( 'Test passed')
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
