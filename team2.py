@@ -1,3 +1,5 @@
+
+import random
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
@@ -7,8 +9,8 @@
 ####
 
 team_name = 'BACH' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'collude for 30, then decide'
+strategy_description = 'collude for 30, then decide'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -26,8 +28,56 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
+    # This strategy is completely random.
+    '''
+    number = random.randInt(0, 1)
+    if number = 0:
+        return 'c'
+    else:
+        return 'b'
+    '''
+    # This strategy runs n trials, then decides whether to collude or betray.
+    '''
+    betrayal_count = 0
+    collusion_count = 0
+    if len(my_history) < 15:
+        return 'c'
+    elif len(my_history) == 15:
+        for i in range(len(their_history)):
+            if i == 'c':
+                collusion_count += 1
+            elif i == 'b':
+                betrayal_count += 1
+    if betrayal_count > collusion_count:
+        return 'b'
+    elif collusion_count > betrayal_count:
+        return 'c'         
+    else:
+        number = random.randint(0, 1)
+        if number == 0:
+            return 'c'
+        else:
+            return 'b'          
+    '''
+    
+    # This strategy colludes until betrayed.
+    
+    betrayal_count = 0
+    collusion_count = 0
+    for i in range(len(their_history)):
+            if i == 'c':
+                collusion_count += 1
+            elif i == 'b':
+                betrayal_count += 1
+    if collusion_count == 0:
+        return 'c'
+    else:
+        return 'b'
+    
+    
+    '''
     return 'c'
-
+    '''
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
@@ -53,7 +103,7 @@ if __name__ == '__main__':
               my_score=0,
               their_score=0,
               result='b'):
-         print( 'Test passed')
+         print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
@@ -65,4 +115,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='b')   
