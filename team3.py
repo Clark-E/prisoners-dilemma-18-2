@@ -29,7 +29,7 @@ def move(my_history, their_history, my_score, their_score):
     #return('b' if ('b' in their_history) else 'c')
     #return('b' if (len(their_history) == 0) else their_history[-1])
     #return('b')
-    return('b' if (('b' in their_history) or (len(their_history) >= 175)) else 'c')
+    return('b' if (('b' in their_history) or (len(their_history) >= 195)) else 'c')
 
 
 def test_move(my_history, their_history, my_score, their_score, result):
