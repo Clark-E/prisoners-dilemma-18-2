@@ -1,5 +1,10 @@
 from __future__ import print_function
 
+try:
+    from importlib import reload
+except:
+    print("")
+
 ##### 
 # Computer Science and Software Engineering
 # PLTW AP CS Principles
@@ -62,6 +67,7 @@ def main_play(modules):
         sections: a list of [str, str, str, list of str]    
             '''
     scores, moves = play_tournament(modules)
+
     section0, section1, section2, section3 = make_reports(modules, scores, moves)
     code = make_code_string(modules)
     # On screen, include the first three out of four sections of the report.
@@ -240,13 +246,13 @@ def make_section1(modules, scores):
     for index in range(len(modules)):
         section1 += 'vs. P' + str(index) + ' :'
         for i in range(len(modules)):
-            section1 += '{:>7}'.format(scores[i][index])
+            section1 += '{:>7}'.format(round(scores[i][index]))
         section1 += '\n'
 
     # Last line
     section1 += 'TOTAL  :'
     for index in range(len(modules)):
-        section1 += '{:>7}'.format(sum(scores[index]))     
+        section1 += '{:>7}'.format(round(sum(scores[index])))     
     return section1+'\n'
     
 def make_section2(modules, scores):
@@ -268,9 +274,9 @@ def make_section2(modules, scores):
     for index in range(len(modules)):
         section2_list.append((modules[index].team_name,
                               'P'+str(index),
-                              str(sum(scores[index])/len(modules)),
+                              str(round(sum(scores[index])/len(modules))),
                               str(modules[index].strategy_name)))
-    section2_list.sort(key=lambda x: int(x[2]), reverse=True)
+    section2_list.sort(key=lambda x: float(x[2]), reverse=True)
     
     # Generate one string per team
     # Rockettes (P1):  -500 points with Backstabber
