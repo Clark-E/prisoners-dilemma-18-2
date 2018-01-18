@@ -5,10 +5,10 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
-
+import random
 team_name = 'Second Order' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'Win every time'
+strategy_description = 'Only can tie'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -26,7 +26,39 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    #Strategy 1- Random
+    #numb = (random.randint(1,2))
+    #if (numb == 1):
+    #    return 'c'
+    #    
+    #return 'b'
+    
+    #Strategy 2- 
+    
+    return 'b'
+    
+    #
+    #Strategy 3
+    #b = 0.0
+    #c = 0.0
+    #test = random.randint(1,100)
+    #if len(my_history)<10:
+    #    return 'b'
+    #else:
+    #    for item in their_history:
+    #        if (item == 'b'):
+    #            b+=1
+    #        else:
+    #            c+=1
+    #    if (b/len(their_history) > (c/len(their_history))):
+    #        return 'b'
+    #    else:
+    #        if (test>90):
+    #            return 'c'
+    #        return 'b'
+            
+    
+
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
